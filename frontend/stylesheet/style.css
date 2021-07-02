@@ -49,3 +49,33 @@ body {
     bottom: 50%;
     width: auto;
 }
+
+#find-quotes {
+    padding: 7px;
+    position: fixed;
+    top: 50%;
+    bottom: 50%;
+    width: 200px;
+    height: 65px;
+    background: #023b35;
+    box-shadow: 0px 0px 16px #3a7dbb;
+    border-radius: 2px;
+    z-index: 3;
+    border: 2px solid;
+    transition: all 1s ease-in-out;
+    border-image: linear-gradient(#0c4607, rgba(11, 21, 1, 0.378)) 30;
+    box-shadow: 0px 0px 36px #1366bf;
+    transition: all 2s ease-in-out;
+    
+    font-family: "Sacramento";
+    text-align: center;
+    font-size: 35px;
+    -webkit-text-fill-color: white;
+
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: space-around;
+    align-items: center;
+    cursor: pointer;
+}
+
