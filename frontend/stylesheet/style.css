@@ -21,3 +21,9 @@ body {
     background-size: cover;
     opacity: 0.2;
 }
+
+#welcome {
+    position: absolute;
+    font-family: "Sacramento";
+    background-color: rgba(211, 211, 211, 0.599);
+}   
