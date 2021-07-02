@@ -4,4 +4,6 @@ class User {
         this.id = user.id
         User.currentUser = this
     }
+
+    static currentUser = ''
 }
