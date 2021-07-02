@@ -39,5 +39,13 @@ body {
     font-style: italic;
     font-family: "Sacramento";
     background-color: rgba(0, 79, 82, 0.679);
+}
 
+#quote-container {
+    margin: auto;
+    top: 50%;
+    left: 0;
+    right: 0;
+    bottom: 50%;
+    width: auto;
 }
