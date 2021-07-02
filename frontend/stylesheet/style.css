@@ -4,3 +4,20 @@ body {
     background-image: url("logo/ray-hudson.jpeg");
     font-family: 'Lucida Sans';
 }
+
+.bgimg-page-wrapper{
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+#background-img {
+    position: absolute;
+    min-height: 100%;
+    background-position: center;
+    background-size: cover;
+    opacity: 0.2;
+}
