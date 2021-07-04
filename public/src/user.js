@@ -27,23 +27,6 @@ class User {
         Quote.fetchQuotes()
     }
 
-    // async postFetch(data){
-    //     try {
-    //         const response = await fetch(`http://localhost:3000/users/${this.id}/quotes`, {
-    //             method: "POST",
-    //             headers: {
-    //                 'Content-Type': 'application/json',
-    //                 "Accept": "application/json"
-    //             },
-    //             body: JSON.stringify(data),
-    //         })
-    //         const data_1 = await response.json()
-    //         console.log('Success')
-    //     } catch (error) {
-    //         console.error('Error:', error)
-    //     }
-    // }
-
     getCurrentUser(){
         fetch(`http://localhost:3000/users/${this.id}`)
         .then(resp => resp.json())

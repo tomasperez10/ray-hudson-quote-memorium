@@ -1,4 +1,4 @@
-const quotesDiv = document.getElementById("quote-container")
+// const quotesDiv = document.getElementById("quote-container")
 
 
 class Quote{
@@ -24,12 +24,11 @@ class Quote{
         const div = document.createElement("div")
         const a = document.createElement('a')
         a.setAttribute('id', this.link)
-        a.addEventListener("click", this.link)
         const h2 = document.createElement('h2')
-        h2.innerText = this.description
+        h2.innerHTML = this.description
         div.appendChild(a)
         div.appendChild(h2)
-        quotesDiv.append(div)
+        // quotesDiv.append(div)
     };
 
     static fetchQuotes(){
