@@ -26,4 +26,28 @@ class User {
         })
         Quote.fetchQuotes()
     }
+
+    postFetch(data){
+        return fetch(`http://localhost:3000/users/${this.id}/quotes`, {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json',
+                "Accept": "application/json"
+            },
+            body: JSON.stringify(data),
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Success');
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
+    }
+
+    getCurrentUser(){
+        fetch(`http://localhost:3000/users/${this.id}`)
+        .then(resp => resp.json())
+        .then(User.currentUser)
+    }
 }
