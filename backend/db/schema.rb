@@ -10,12 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_30_074552) do
+ActiveRecord::Schema.define(version: 2021_07_04_091354) do
 
   create_table "quotes", force: :cascade do |t|
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "link"
   end
 
   create_table "users", force: :cascade do |t|

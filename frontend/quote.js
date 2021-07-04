@@ -21,9 +21,6 @@ class Quote{
     };
 
     appendQuote(){
-        if (!!alertMess){
-            alertMess.remove()
-        }
         if (!div){
             div = document.createElement("div")
             div.setAttribute('id', 'single-quote')
