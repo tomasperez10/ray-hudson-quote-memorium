@@ -4,11 +4,11 @@ class UsersController < ApplicationController
     end
 
     def create  
-        render json: User.create(username: params["username"])
+        render json: User.new(user_params)
     end
 
     def show 
-        render json: User.find_by(id: params["id"])
+        render json: User.find_by(id: params[:id])
     end
 
     private

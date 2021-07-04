@@ -1,4 +1,4 @@
-// const quotesDiv = document.getElementById("quote-container")
+const quotesDiv = document.getElementById("quote-container")
 
 
 class Quote{
@@ -12,10 +12,7 @@ class Quote{
     static allQuotes = []
     static counter = 0
 
-    static createQuotes(quotes){
-        for (let q of quotes){
-            new Quote(q) 
-        }
+    static createQuotes(){
         const q = Quote.allQuotes[Quote.counter++]
         q.appendQuote()
     };
@@ -28,7 +25,7 @@ class Quote{
         h2.innerHTML = this.description
         div.appendChild(a)
         div.appendChild(h2)
-        // quotesDiv.append(div)
+        quotesDiv.append(div)
     };
 
     static fetchQuotes(){
