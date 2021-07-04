@@ -4,6 +4,6 @@ class User < ApplicationRecord
     has_many :quotes
 
     def attributes
-        {"description" => nil, "id" => nil}
+        {"username" => nil, "id" => nil}
     end
 end
