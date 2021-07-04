@@ -23,7 +23,8 @@ class Quote{
     appendQuote(){
         const div = document.createElement("div")
         const a = document.createElement('a')
-        a.setAttribute('id', this.link);
+        a.setAttribute('id', this.link)
+        a.addEventListener("click", this.link)
         const h2 = document.createElement('h2')
         h2.innerText = this.description
         div.appendChild(a)
