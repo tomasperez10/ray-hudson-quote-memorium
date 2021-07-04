@@ -24,7 +24,6 @@ class User {
         .catch((error) => {
             console.log(error)
         })
-        getCurrentUser()
         Quote.fetchQuotes()
     }
 
