@@ -79,3 +79,11 @@ body {
     cursor: pointer;
 }
 
+div h2, div a{
+    padding: 5px;
+    font-size: 45px;
+    margin: auto;
+    font-family: "Sacramento";
+    text-align: center;
+}
+
