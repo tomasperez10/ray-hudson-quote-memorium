@@ -1,5 +1,4 @@
 const quotesDiv = document.getElementById("quote-container")
-let div = document.getElementById("single-quote")
 
 
 class Quote{
@@ -22,13 +21,13 @@ class Quote{
     };
 
     appendQuote(){
-        if (!div){
-            div = document.createElement("div")
-            div.setAttribute('id', 'single-quote')
-        }
+        const div = document.createElement("div")
+        const a = document.createElement('a')
+        a.setAttribute('id', this.link);
         const h2 = document.createElement('h2')
         h2.innerText = this.description
-        div.append(h2)
+        div.appendChild(a)
+        div.appendChild(h2)
         quotesDiv.append(div)
     };
 
