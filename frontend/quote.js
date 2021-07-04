@@ -6,6 +6,7 @@ class Quote{
     constructor(quote){
         Quote.allQuotes.push(this)
         this.description = quote.description
+        this.link = quote.link
         this.id = quote.id
     }
 
