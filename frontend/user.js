@@ -24,5 +24,6 @@ class User {
         .catch((error) => {
             console.log(error)
         })
+        Quote.fetchQuotes()
     }
 }
