@@ -24,6 +24,7 @@ class User {
         .catch((error) => {
             console.log(error)
         })
+        getCurrentUser()
         Quote.fetchQuotes()
     }
 
@@ -32,4 +33,5 @@ class User {
         .then(resp => resp.json())
         .then(User.currentUser)
     }
+    
 }
