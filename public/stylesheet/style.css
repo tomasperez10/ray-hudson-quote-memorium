@@ -69,11 +69,11 @@ body {
     
     font-family: "Sacramento";
     text-align: center;
-    font-size: 35px;
+    font-size: 10px;
     -webkit-text-fill-color: white;
 
     flex-direction: column;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     align-content: space-around;
     align-items: center;
     cursor: pointer;

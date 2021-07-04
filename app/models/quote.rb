@@ -7,7 +7,7 @@ class Quote < ApplicationRecord
         current_user = User.last
     end
 
-    def attributes
-        {"description" => nil, "id" => nil, "quotes" => {}}
-    end
+    # def attributes
+    #     {"description" => nil, "id" => nil, "quotes" => {}}
+    # end
 end
