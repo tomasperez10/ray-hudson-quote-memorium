@@ -1,6 +1,9 @@
 class QuotesController < ApplicationController
     def index
-        render json: Quote.all
+        # Rails.application.load_seed
+        quotes = Quote.all
+        # p Quote.all.as_json
+        render json: quotes
     end
 
     def create

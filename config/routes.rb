@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  get 'quotes/create'
+  # get 'quotes/index'
   resources :users
   resources :quotes
 

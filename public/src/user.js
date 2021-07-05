@@ -25,6 +25,7 @@ class User {
             console.log(error)
         })
         Quote.fetchQuotes()
+
     }
 
     getCurrentUser(){

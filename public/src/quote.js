@@ -1,7 +1,6 @@
 const quotesDiv = document.getElementById("quote-container")
 
-
-class Quote{
+class Quote {
     constructor(quote){
         Quote.allQuotes.push(this)
         this.description = quote.description
@@ -12,15 +11,20 @@ class Quote{
     static allQuotes = []
     static counter = 0
 
-    static createQuotes(){
+    static createQuotes(quotes){
+        for (let quote of quotes) {
+            new Quote(quote)
+        }
+        // console.log(Quote.allQuotes)
         const q = Quote.allQuotes[Quote.counter++]
+        // console.log(q)
         q.appendQuote()
     };
 
     appendQuote(){
         const div = document.createElement("div")
         const a = document.createElement('a')
-        a.setAttribute('id', this.link)
+        a.setAttribute('href', this.link)
         const h2 = document.createElement('h2')
         h2.innerHTML = this.description
         div.appendChild(a)
@@ -33,6 +37,7 @@ class Quote{
         buttonQuote.remove()
         fetch("http://localhost:3000/quotes")
         .then(resp => resp.json())
-        .then(Quote.createQuotes)
+        .then(data => console.log(data))
+        // .then(Quote.createQuotes)
     }
 }

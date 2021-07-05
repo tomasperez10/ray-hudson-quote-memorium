@@ -8,6 +8,6 @@ class Quote < ApplicationRecord
     end
 
     def attributes
-        {"description" => nil, "link" => nil, "id" => nil, "quotes" => {}}
+        {"description" => nil, "link" => nil, "id" => nil}
     end
 end
