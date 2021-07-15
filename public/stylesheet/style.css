@@ -23,9 +23,10 @@ body {
 }
 
 #welcome {
-    position: absolute;
     font-family: "Sacramento";
     background-color: rgba(211, 211, 211, 0.599);
+    font-size: 40px;
+    text-align: center;
 }
 
 #username {
@@ -48,6 +49,10 @@ body {
     right: 0;
     bottom: 50%;
     width: auto;
+    line-height: 3.0;
+    text-align: center;
+    background-color: rgba(211, 211, 211, 0.599);
+    font-size: 40px;
 }
 
 #find-quotes {
@@ -69,7 +74,7 @@ body {
     
     font-family: "Sacramento";
     text-align: center;
-    font-size: 10px;
+    font-size: 18px;
     -webkit-text-fill-color: white;
 
     flex-direction: column;
@@ -85,5 +90,6 @@ div h2, div a{
     margin: auto;
     font-family: "Sacramento";
     text-align: center;
+    background-color: rgba(211, 211, 211, 0.599);
 }
 

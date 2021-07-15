@@ -1,4 +1,5 @@
 const quotesDiv = document.getElementById("quote-container")
+const headDiv = document.getElementById("quote-container")
 
 class Quote {
     constructor(quotes){
@@ -50,6 +51,8 @@ class Quote {
     static fetchQuotes(){
         username.remove()
         buttonQuote.remove()
+        welcome.remove()
+        headDiv.append("Our 5 best Ray Hudson quotes! Click the quotes to see his quotes in action on camera!")
         fetch("http://localhost:3000/quotes")
         .then(resp => resp.json())
         .then(data => console.log(data))
