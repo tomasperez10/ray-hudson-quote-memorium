@@ -20,11 +20,15 @@ class Quote {
             function appendQuote(){
                 const div = document.createElement("div")
                 const a = document.createElement('a')
-                a.setAttribute('href', quotes.link)
+                const link = document.createTextNode(quotes.description)
+                // a.setAttribute('href', quotes.link)
+                a.appendChild(link)
+                a.title = quotes.description
+                a.href = quotes.link
+                document.body.appendChild(a)
                 const h2 = document.createElement('h2')
-                h2.innerHTML = quotes.description + a
+                h2.innerHTML = a.title
                 div.appendChild(a)
-                div.appendChild(h2)
                 quotesDiv.append(div)
                 return quotes
             }
