@@ -10,6 +10,10 @@ class QuotesController < ApplicationController
         render json: Quote.create(quote_params)
     end
 
+    def link
+        render json: Quote.find_by(link: params[:link])
+    end
+
     private
 
     def post_params

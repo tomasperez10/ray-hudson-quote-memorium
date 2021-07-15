@@ -31,11 +31,15 @@ class Quote {
                 h2.innerHTML = a.title
                 div.appendChild(a)
                 quotesDiv.append(div)
-                return quotes
+                return fetch(`http://localhost:3000/quotes/${quotes.link}`)
+                .then(resp => resp.json)
+                .then(quotes)
+                // .then(Quote.dynamicVideo)
             }
 
             console.log(quotes)
             appendQuote()
+            
             
         
         }
@@ -45,6 +49,21 @@ class Quote {
 
         
     };
+
+    // static dynamicVideo(){
+    //     let ytVideos = JSON.parse(Quote.allQuotes)
+
+    //     for (let i in ytVideos.quotes) {
+    //         let ytVideo = $("<iframe/>");
+    //         ytVideo.attr({
+    //           width: 560,
+    //           height: 315,
+    //           src: 'https://www.youtube.com/embed/' + ytVideos.quotes[i].link,
+    //           frameborder: 0
+    //         });
+    //         $("#quote-container").append(ytVideo);
+    //     }
+    // }
 
     
 
