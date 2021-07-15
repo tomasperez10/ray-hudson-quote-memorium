@@ -1,36 +1,47 @@
 const quotesDiv = document.getElementById("quote-container")
 
 class Quote {
-    constructor(quote){
-        Quote.allQuotes.push(this)
-        this.description = quote.description
-        this.link = quote.link
-        this.id = quote.id
+    constructor(quotes){
+        this.description = quotes.description
+        this.link = quotes.link
+        this.id = quotes.id
     }
 
-    static allQuotes = []
+    static allQuotes = [{description: "You can follow him on Facebook, and he'll come out on Twitter!", link: "https://www.youtube.com/watch?v=oT9kPvzYPhs"},
+    {description: "Sir Isaac Newton from up above, looks down and says, 'About that gravity thing? I was wrong, Messi was right!'", link: "https://www.youtube.com/watch?v=ciQKYsXip-M"},
+    {description: "You can drop a tarantula into his shorts and he'll still be cool!", link: "https://www.youtube.com/watch?v=vNf8eGnNTDA"},
+    {description: "He curls this divinely with more curve on it than Jessica Rabbit!", link: "https://www.youtube.com/watch?v=jQGIceRIzuA"},
+    {description: "As electrifying as a hairdryer thrown into a hot tub!", link: "https://www.youtube.com/watch?v=0Pca2t3A5rk"}]
+
     static counter = 0
 
-    static createQuotes(quotes){
-        for (let quote of quotes) {
-            new Quote(quote)
+    static createQuotes(){
+        for (let quotes of Quote.allQuotes) {
+            function appendQuote(){
+                const div = document.createElement("div")
+                const a = document.createElement('a')
+                a.setAttribute('href', quotes.link)
+                const h2 = document.createElement('h2')
+                h2.innerHTML = quotes.description + a
+                div.appendChild(a)
+                div.appendChild(h2)
+                quotesDiv.append(div)
+                return quotes
+            }
+
+            console.log(quotes)
+            appendQuote()
+            
+        
         }
         // console.log(Quote.allQuotes)
-        const q = Quote.allQuotes[Quote.counter++]
+
         // console.log(q)
-        q.appendQuote()
+
+        
     };
 
-    appendQuote(){
-        const div = document.createElement("div")
-        const a = document.createElement('a')
-        a.setAttribute('href', this.link)
-        const h2 = document.createElement('h2')
-        h2.innerHTML = this.description
-        div.appendChild(a)
-        div.appendChild(h2)
-        quotesDiv.append(div)
-    };
+    
 
     static fetchQuotes(){
         username.remove()
@@ -38,6 +49,6 @@ class Quote {
         fetch("http://localhost:3000/quotes")
         .then(resp => resp.json())
         .then(data => console.log(data))
-        // .then(Quote.createQuotes)
+        .then(Quote.createQuotes)
     }
 }

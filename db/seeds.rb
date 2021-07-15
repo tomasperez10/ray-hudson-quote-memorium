@@ -20,5 +20,5 @@ quotes = Quote.create([
 # Quote.create(description: "He curls this divinely with more curve on it than Jessica Rabbit!", link: "https://www.youtube.com/watch?v=jQGIceRIzuA")
 # Quote.create(description: "As electrifying as a hairdryer thrown into a hot tub!", link: "https://www.youtube.com/watch?v=0Pca2t3A5rk")
 
-p "Created #{quote.count} quotes"
+p "Created #{quotes.count} quotes"
 
