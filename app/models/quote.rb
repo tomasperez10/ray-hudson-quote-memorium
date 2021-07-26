@@ -1,5 +1,5 @@
 class Quote < ApplicationRecord
-    include ActiveModel::Serializers::JSON
+    # include ActiveModel::Serializers::JSON
 
     belongs_to :user
 
@@ -7,7 +7,7 @@ class Quote < ApplicationRecord
         current_user = User.last
     end
 
-    def attributes
-        {"description" => nil, "link" => nil, "id" => nil}
-    end
+    # def attributes
+    #     {"description" => nil, "link" => nil, "id" => nil}
+    # end
 end

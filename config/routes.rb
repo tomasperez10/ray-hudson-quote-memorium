@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :comments
   # get 'quotes/index'
   resources :users
   resources :quotes
