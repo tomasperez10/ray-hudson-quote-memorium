@@ -5,12 +5,8 @@ class UsersController < ApplicationController
     end
 
     def new
-        if logged_in?
-            redirect_to user_path(current_user)
-        else
-            user = User.new
-            render json: user
-        end       
+        user = User.new
+        render json: user   
     end
 
     def create

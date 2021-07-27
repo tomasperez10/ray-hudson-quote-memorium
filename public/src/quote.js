@@ -64,5 +64,6 @@ class Quote {
         .then(resp => resp.json())
         .then(data => console.log(data))
         .then(Quote.createQuotes)
+        .then(Comment.createComment())
     }
 }
