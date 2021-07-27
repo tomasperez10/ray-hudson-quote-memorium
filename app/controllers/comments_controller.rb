@@ -10,7 +10,7 @@ class CommentsController < ApplicationController
     end
 
     def create
-        quote = Quote.find(params[:quote_id])
+        quote = Quote.find(id: params[:quote_id])
         comment = quote.Comment.new(comment_params)
 
         if comment.save

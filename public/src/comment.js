@@ -3,32 +3,18 @@ const commentsDiv = document.getElementById("quote-container")
 class Comment {
     constructor(comment){
         this.description = comment.description
-        // this.quote_id = comments.quote_id
-        // this.user_id = comments.user_id
+        this.quote_id = comments.quote_id
+        this.user_id = comments.user_id
     }
 
     static createComment() {
         for (let quote of Quote.allQuotes) {
+            // const commentsDiv = document.getElementById(quote.id)
+            const div = document.createElement('div')
             const form = document.createElement('form')
             const label = document.createElement('label')
             const input = document.createElement('input')
             const button = document.createElement('input')
-            form.action = fetch(`http://localhost:3000/comments`, {
-                        method: "POST",
-                        headers: {
-                            "Content-Type": "application/json",
-                            "Accept": "application/json"
-                        },
-                        body: JSON.stringify({comment: newComment})
-                    })
-                    .then(resp => resp.json())
-                    .then(r => {
-                        new Comment(r);
-                    })
-                    .then(quote)
-                    .catch((error) => {
-                        console.log(error)
-                    })
 
             label.innerHTML = 'Comment:'
             input.type = 'text'
@@ -37,10 +23,35 @@ class Comment {
             button.type = 'submit'
             button.value = 'Submit'
 
-            document.quote.appendChild(form)
+            document.body.appendChild(div)
+
             form.appendChild(label)
             form.appendChild(input)
             form.appendChild(button)
+
+            form.action = fetch(`http://localhost:3000/quotes/comments`, {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                            "Accept": "application/json"
+                        },
+                    })
+                    .then(resp => resp.json())
+                    .then(r => {
+                        new Comment(r);
+                    })
+                    .catch((error) => {
+                        console.log(error)
+                    })
+
+            div.appendChild(form)
+
+            const p = document.createElement('p')
+            p.innerHTML = this.description
+            commentsDiv.append(div)
+
+          
+
             // function appendComment(){
             //     const div = document.createElement("div")
             //     const input = document.createElement('input')

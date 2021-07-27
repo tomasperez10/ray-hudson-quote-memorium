@@ -1,13 +1,4 @@
-const quotesDiv = document.getElementById("quote-container")
-const headDiv = document.getElementById("quote-container")
-
-class Quote {
-    // constructor(quotes){
-    //     this.description = quotes.description
-    //     this.link = quotes.link
-    //     this.id = quotes.id
-    // }
-
+class Quote2 {
     static allQuotes = [
         {
             id: 1, 
@@ -41,48 +32,8 @@ class Quote {
         }
     ]
 
-
-    static createQuotes(){
-        for (let quotes of Quote.allQuotes) {
-            function appendComment() {
-                const div = document.createElement('div')
-                const form = document.createElement('form')
-                const label = document.createElement('label')
-                const input = document.createElement('input')
-                const button = document.createElement('input')
-
-                label.innerHTML = 'Comment:'
-                input.type = 'text'
-                input.id = 'comment'
-                input.name = 'comment'
-                button.type = 'submit'
-                button.value = 'Submit'
-
-                form.appendChild(label)
-                form.appendChild(input)
-                form.appendChild(button)
-
-                // form.action = fetch(`http://localhost:3000/quotes/comments`, {
-                //             method: "POST",
-                //             headers: {
-                //                 "Content-Type": "application/json",
-                //                 "Accept": "application/json"
-                //             },
-                //         })
-                //         .then(resp => resp.json())
-                //         .then(r => {
-                //             new Comment(r);
-                //         })
-                //         .catch((error) => {
-                //             console.log(error)
-                //         })
-                form.action  = `http://localhost:3000/quotes/${quotes.id}/comments`
-                form.method = 'post'
-
-                div.appendChild(form)
-                return div
-            }
-
+    static createQuotes() {
+        for (let quotes of Quote2.allQuotes) {
             function appendQuote(){
                 const div = document.createElement("div")
                 const a = document.createElement('a')
@@ -94,8 +45,6 @@ class Quote {
                 const h2 = document.createElement('h2')
                 h2.innerHTML = a.title
                 div.appendChild(a)
-
-                div.appendChild(appendComment())
                 quotesDiv.append(div)
                 return fetch(`http://localhost:3000/quotes/${quotes.link}`,
                 {
@@ -105,9 +54,9 @@ class Quote {
                 .then(quotes)
             }
 
-            appendQuote()  
-        }        
-    };
+            appendQuote()
+        }
+    }
 
     static fetchQuotes(){
         username.remove()
@@ -120,7 +69,7 @@ class Quote {
         })
         .then(resp => resp.json())
         // .then(data => console.log(data))
-        .then(Quote.createQuotes)
+        .then(Quote2.createQuotes)
         // .then(Comment.createComment())
     }
 }
