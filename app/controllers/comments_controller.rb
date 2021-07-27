@@ -10,11 +10,11 @@ class CommentsController < ApplicationController
     end
 
     def create
-        quote = Quote.find(id: params[:quote_id])
-        comment = quote.Comment.new(comment_params)
+        quote = Quote.find_by(id: params[:quote_id])
+        comment = Comment.new(comment_params)
 
         if comment.save
-            session[:user_id] = comment.id
+            session[:user_id] = comment.description
             render json: comment
         else
             render :new
@@ -24,6 +24,7 @@ class CommentsController < ApplicationController
     private
 
     def comment_params
-        params.require(:comment).permit(:description, :user_id, :quote_id)
+        # params.require(:comment).permit(:description, :user_id, :quote_id)
+        params.require(:comment).permit(:description, :quote_id)
     end
 end

@@ -6,7 +6,9 @@ class Quote {
     //     this.description = quotes.description
     //     this.link = quotes.link
     //     this.id = quotes.id
+    //     Quote.allQuotes.push(this)
     // }
+    // static allQuotes = []
 
     static allQuotes = [
         {
@@ -62,22 +64,29 @@ class Quote {
                 form.appendChild(input)
                 form.appendChild(button)
 
-                // form.action = fetch(`http://localhost:3000/quotes/comments`, {
-                //             method: "POST",
-                //             headers: {
-                //                 "Content-Type": "application/json",
-                //                 "Accept": "application/json"
-                //             },
-                //         })
-                //         .then(resp => resp.json())
-                //         .then(r => {
-                //             new Comment(r);
-                //         })
-                //         .catch((error) => {
-                //             console.log(error)
-                //         })
-                form.action  = `http://localhost:3000/quotes/${quotes.id}/comments`
-                form.method = 'post'
+                // form.action = 
+                form.onsubmit = (comment) => {
+                    fetch(`http://localhost:3000/quotes/${quotes.id}/comments`, {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json",
+                                "Accept": "application/json"
+                            },
+                            body: JSON.stringify({
+                                description: comment.description,
+                                quote_id: quotes.id
+                            })
+                        })
+                        .then(resp => resp.json())
+                        .then(r => {
+                            new Comment(r);
+                        })
+                        .catch((error) => {
+                            console.log(error)
+                        })
+                }
+                // form.action  = `http://localhost:3000/quotes/${quotes.id}/comments`
+                // form.method = 'post'
 
                 div.appendChild(form)
                 return div
