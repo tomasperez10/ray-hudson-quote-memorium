@@ -46,28 +46,29 @@ class Quote {
 
     static createQuotes(){
         for (let quotes of Quote.allQuotes) {
-            function appendComment() {
+
+            function appendCommentSubmitForm(quote) {
                 const div = document.createElement('div')
                 const form = document.createElement('form')
                 const label = document.createElement('label')
                 const input = document.createElement('input')
                 const button = document.createElement('input')
-
+        
                 label.innerHTML = 'Comment:'
                 input.type = 'text'
                 input.id = 'comment'
                 input.name = 'comment'
                 button.type = 'submit'
                 button.value = 'Submit'
-
+        
                 form.appendChild(label)
                 form.appendChild(input)
                 form.appendChild(button)
-
+        
                 form.onsubmit = (event) => {
                     const commentData = new FormData(form)
                     event.preventDefault()
-                    fetch(`http://localhost:3000/quotes/${quotes.id}/comments`, {
+                    fetch(`http://localhost:3000/quotes/${quote.id}/comments`, {
                             method: "POST",
                             headers: {
                                 "Content-Type": "application/json",
@@ -75,47 +76,45 @@ class Quote {
                             },
                             body: JSON.stringify({
                                 description: commentData.get('comment'),
-                                quote_id: quotes.id
+                                quote_id: quote.id
                             })
                         })
-                        .then(resp=> console.log(resp))
                         .then(resp => resp.json())
-                        .then(data=> console.log(data))
                         .then(r => {
-                            new Comment(r);
+                            Comment.createComment(r)
                         })
                         .catch((error) => {
                             console.log(error)
                         })
                 }
-
+        
                 div.appendChild(form)
                 return div
             }
 
-            function appendQuote(){
+            function appendQuote(quote){
                 const div = document.createElement("div")
+                div.setAttribute('id', quote.id)
                 const a = document.createElement('a')
-                const link = document.createTextNode(quotes.description)
+                const link = document.createTextNode(quote.description)
                 a.appendChild(link)
-                a.title = quotes.description
-                a.href = quotes.link
+                a.title = quote.description
+                a.href = quote.link
                 document.body.appendChild(a)
                 const h2 = document.createElement('h2')
                 h2.innerHTML = a.title
                 div.appendChild(a)
-
-                div.appendChild(appendComment())
+        
+                div.appendChild(appendCommentSubmitForm(quote))
                 quotesDiv.append(div)
-                return fetch(`http://localhost:3000/quotes/${quotes.link}`,
+                return fetch(`http://localhost:3000/quotes/${quote.link}`,
                 {
                     method: "GET"
                 })
                 .then(resp => resp.json)
-                .then(quotes)
+                .then(quote)
             }
-
-            appendQuote()  
+            appendQuote(quotes)  
         }        
     };
 
