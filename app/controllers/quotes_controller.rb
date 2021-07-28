@@ -1,17 +1,19 @@
 class QuotesController < ApplicationController
     def index
         # Rails.application.load_seed
-        quotes = Quote.all
+        @quotes = Quote.all
         # p Quote.all.as_json
-        render json: quotes
+        render json: @quotes.to_json
     end
 
     def create
-        render json: Quote.create(quote_params)
+        @quote = Quote.create(quote_params)
+        render json: @quote.to_json
     end
 
     def link
-        render json: Quote.find_by(link: params[:link])
+        @quote = Quote.find_by(link: params[:link])
+        render json: @quote.to_json
     end
 
     private

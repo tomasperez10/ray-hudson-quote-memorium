@@ -64,8 +64,9 @@ class Quote {
                 form.appendChild(input)
                 form.appendChild(button)
 
-                // form.action = 
-                form.onsubmit = (comment) => {
+                form.onsubmit = (event) => {
+                    const commentData = new FormData(form)
+                    event.preventDefault()
                     fetch(`http://localhost:3000/quotes/${quotes.id}/comments`, {
                             method: "POST",
                             headers: {
@@ -73,11 +74,13 @@ class Quote {
                                 "Accept": "application/json"
                             },
                             body: JSON.stringify({
-                                description: comment.description,
+                                description: commentData.get('comment'),
                                 quote_id: quotes.id
                             })
                         })
+                        .then(resp=> console.log(resp))
                         .then(resp => resp.json())
+                        .then(data=> console.log(data))
                         .then(r => {
                             new Comment(r);
                         })
@@ -85,8 +88,6 @@ class Quote {
                             console.log(error)
                         })
                 }
-                // form.action  = `http://localhost:3000/quotes/${quotes.id}/comments`
-                // form.method = 'post'
 
                 div.appendChild(form)
                 return div

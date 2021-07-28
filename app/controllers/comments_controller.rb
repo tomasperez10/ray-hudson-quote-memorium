@@ -14,7 +14,8 @@ class CommentsController < ApplicationController
         comment = Comment.new(comment_params)
 
         if comment.save
-            session[:user_id] = comment.description
+            session[:user_id] = comment
+            puts comment
             render json: comment
         else
             render :new
