@@ -13,14 +13,13 @@ class CommentsController < ApplicationController
         @quote = Quote.find_by(id: params[:quote_id])
         @comment = Comment.new(comment_params)
 
-        # @comment.save
+        @comment.save
         render json: @comment.to_json(:only => [:description, :quote_id])
     end
 
     private
 
     def comment_params
-        # params.require(:comment).permit(:description, :user_id, :quote_id)
         params.require(:comment).permit(:description, :quote_id, :user_id)
     end
 end
